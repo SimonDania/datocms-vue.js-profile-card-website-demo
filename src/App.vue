@@ -1,5 +1,13 @@
 <template>
   <div v-if="data">
+    <div class="top-right links">
+     <router-link v-if="authenticated" :to="{ name: 'home' }">
+        {{ $t('home') }}
+     </router-link>
+     <router-link v-else :to="{ name: 'login' }">
+        {{ $t('login') }}
+     </router-link>
+   </div>
     <div
       v-bind:class="[
         'bg-cover fixed top-0 right-0 bottom-0 left-0 font-sans antialiased leading-normal',
@@ -143,6 +151,7 @@
 <script>
 import { request } from "./lib/datocms";
 import { toHead } from "vue-datocms";
+import { hero } from "./templates/Hero.vue";
 
 export default {
   name: "App",
