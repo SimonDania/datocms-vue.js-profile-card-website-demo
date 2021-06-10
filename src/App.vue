@@ -1,6 +1,7 @@
 <template>
   <div v-if="data">
     <div class="top-right links">
+      <span>Top links</span>
      <router-link v-if="authenticated" :to="{ name: 'home' }">
         {{ $t('home') }}
      </router-link>
